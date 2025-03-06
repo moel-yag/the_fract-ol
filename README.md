@@ -20,7 +20,7 @@ Installation
 
     Clone the repository to your local machine:
 
-git clone https://github.com/your-username/fract-ol.git
+git clone https://github.com/moel-yag/the_fract-ol.git
 cd fract-ol
 
 Install MinilibX or any required libraries if they are not already installed.
@@ -62,8 +62,26 @@ Mandelbrot Set
 
 The Mandelbrot set is computed using the formula:
 
-    zn+1=zn2+c
-    zn+1​=zn2​+c
+    zₙ₊₁ = zₙ² + c
+
+Here's the explanation of the formula in words:
+
+The formula you're referring to is used to generate the Mandelbrot set, and it describes how each point in the set is calculated. It is expressed as:
+
+zₙ₊₁ = zₙ² + c
+
+    zₙ represents the current value in the sequence, where the sequence starts with an initial value (usually 0).
+    zₙ₊₁ represents the next value in the sequence.
+    c is a complex constant that varies depending on the point being tested in the fractal.
+
+To break it down:
+
+    You start with z₀ (which is 0 in most cases).
+    Then, for each iteration, you square the current value of zₙ, and add the constant c to get the next value, zₙ₊₁.
+    You repeat this process for each point and check if the sequence remains bounded (i.e., stays within a certain range) or if it tends toward infinity.
+    Points where the sequence remains bounded are part of the Mandelbrot set, and those that escape to infinity are not.
+
+In simpler terms, it's an iterative process of applying the equation, and based on how the values behave (whether they stay within limits or not), you can determine if a point belongs to the fractal set. This gives rise to the beautiful, intricate shapes seen in the Mandelbrot fractal!
 
 where zz and cc are complex numbers. The program checks if the sequence tends to infinity or remains bounded.
 Julia Set
