@@ -61,13 +61,10 @@ Algorithms
 Mandelbrot Set
 
 The Mandelbrot set is computed using the formula:
-zn+1=zn2+c
-zn+1​=zn2​+c
+    zn+1=zn2+c
+    zn+1​=zn2​+c
 
 where zz and cc are complex numbers. The program checks if the sequence tends to infinity or remains bounded.
 Julia Set
 
 The Julia set is generated using a similar algorithm but with a fixed complex number cc. The set's appearance changes based on the values of cc.
-License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
