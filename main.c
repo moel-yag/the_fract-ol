@@ -6,12 +6,12 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:49:33 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 17:30:40 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:08:56 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-# include "minilibx-linux/mlx.h"
+#include "minilibx-linux/mlx.h"
 
 int	main(int ac, char **av)
 {

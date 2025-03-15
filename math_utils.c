@@ -6,12 +6,12 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 00:17:13 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 17:09:18 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:09:11 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-# include "minilibx-linux/mlx.h"
+#include "minilibx-linux/mlx.h"
 
 double	map(double unscaled_nb, double new_min, double new_max, double old_max)
 {

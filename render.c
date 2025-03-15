@@ -6,16 +6,16 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 23:03:56 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 17:17:23 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:12:18 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-# include "minilibx-linux/mlx.h"
+#include "minilibx-linux/mlx.h"
 
 static void	my_pixel_put(int x, int y, t_img *img, int color)
 {
-	int offset;
+	int	offset;
 
 	offset = (y * img->line_len) + (x * (img->bpp / 8));
 	*(unsigned int *)(img->pixels_ptr + offset) = color;
@@ -63,7 +63,6 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 void	fractal_render(t_fractal *fractal)
 {
 	int (x), (y);
-
 	y = -1;
 	while (++y < HEIGHT)
 	{
@@ -71,6 +70,6 @@ void	fractal_render(t_fractal *fractal)
 		while (++x < WIDTH)
 			handle_pixel(x, y, fractal);
 	}
-	mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_window, 
-	fractal->img.img_ptr, 0, 0);
+	mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_window,
+		fractal->img.img_ptr, 0, 0);
 }

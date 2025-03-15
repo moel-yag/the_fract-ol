@@ -6,12 +6,12 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 18:05:04 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 17:25:04 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:10:39 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-# include "minilibx-linux/mlx.h"
+#include "minilibx-linux/mlx.h"
 
 static void	malloc_error(void)
 {
@@ -35,8 +35,6 @@ static void	events_init(t_fractal *fractal)
 		mouse_handler, fractal);
 	mlx_hook(fractal->mlx_window, DestroyNotify, StructureNotifyMask,
 		close_handler, fractal);
-	// mlx_hook(fractal->mlx_window, MotionNotify, PointerMotionMask,
-		// julia_track, fractal);
 }
 
 void	fractal_init(t_fractal *fractal)
@@ -61,8 +59,8 @@ void	fractal_init(t_fractal *fractal)
 		free(fractal->mlx_connection);
 		malloc_error();
 	}
-	fractal->img.pixels_ptr = mlx_get_data_addr(fractal->img.img_ptr, 
-	&fractal->img.bpp, &fractal->img.line_len, &fractal->img.endian);
+	fractal->img.pixels_ptr = mlx_get_data_addr(fractal->img.img_ptr,
+			&fractal->img.bpp, &fractal->img.line_len, &fractal->img.endian);
 	events_init(fractal);
 	data_init(fractal);
 }

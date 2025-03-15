@@ -6,12 +6,12 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:20:07 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 15:54:50 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:09:25 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-# include "minilibx-linux/mlx.h"
+#include "minilibx-linux/mlx.h"
 
 int	ft_strncmp(char *s1, char *s2, int n)
 {
