@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:50:54 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 04:02:46 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/15 17:24:46 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ typedef struct s_fractal
 	double	shift_x;
 	double	shift_y;
 	double	zoom;
+	double	julia_x;
+	double	julia_y;
 }				t_fractal;
 
 int			ft_strncmp(char *s1, char *s2, int n);
@@ -75,4 +77,7 @@ t_complex	square_complex(t_complex z);
 int			close_handler(t_fractal *fractal);
 int			key_handler(int keysym, t_fractal *fractal);
 int			mouse_handler(int button, int x, int y, t_fractal *fractal);
+double		atodbl(char *s);
+// int			julia_track(int x, int y, t_fractal *fractal);
+
 #endif

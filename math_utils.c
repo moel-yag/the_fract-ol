@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 00:17:13 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 02:28:07 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/15 17:09:18 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@ t_complex	sum_complex(t_complex z1, t_complex z2)
 
 	result.x = z1.x + z2.x;
 	result.y = z1.y + z2.y;
-	return result;
+	return (result);
 }
 
 t_complex	square_complex(t_complex z)
 {
 	t_complex	result;
+
 	result.x = (z.x * z.x) - (z.y * z.y);
 	result.y = 2 * z.x * z.y;
-	return result;
+	return (result);
 }
