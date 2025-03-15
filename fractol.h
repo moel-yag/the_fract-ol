@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:50:54 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 02:16:27 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/15 02:53:34 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ typedef struct s_fractal
 	t_img	img;
 	double	escape_value;
 	int		iterations_definition;
+	double	shift_x;
+	double	shift_y;
 }				t_fractal;
 
 int		ft_strncmp(char *s1, char *s2, int n);
@@ -67,5 +69,6 @@ void	fractal_render(t_fractal *fractal);
 double	map(double unscaled_nb, double new_min, double new_max, double old_max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
+int key_handler(int keysym, t_fractal *fractal);
 
 #endif
