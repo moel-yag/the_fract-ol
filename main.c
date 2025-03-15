@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:49:33 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 15:45:38 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/15 17:30:40 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ int	main(int ac, char **av)
 		|| ac == 4 && !ft_strncmp(av[1], "julia", 5))
 	{
 		fractal.name = av[1];
-		fractal.julia_x = atodbl(av[2]);
-		fractal.julia_y = atodbl(av[3]);
+		if (!ft_strncmp(fractal.name, "julia", 5))
+		{
+			fractal.julia_x = atodbl(av[2]);
+			fractal.julia_y = atodbl(av[3]);
+		}
 		fractal_init(&fractal);
 		fractal_render(&fractal);
 		mlx_loop(fractal.mlx_connection);
