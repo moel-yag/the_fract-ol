@@ -1,31 +1,21 @@
-# Project name
 NAME		= fractol
 
-# Compiler and flags
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 MLX_FLAGS	= -L minilibx-linux -lmlx -lXext -lX11 -lm
 
-# Directories
 SRC_DIR		= srcs
 OBJ_DIR		= objs
 INC_DIR		= includes
 LIBFT_DIR	= libft
 MLX_DIR		= minilibx-linux
 
-# Source files
 SRCS		= main.c init.c render.c events.c string_utils.c math_utils.c
 OBJS		= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
 # Includes
 INCLUDES	= -I $(INC_DIR) -I $(LIBFT_DIR) -I $(MLX_DIR)
 
-# # Colors
-# GREEN		= \033[0;32m
-# RED			= \033[0;31m
-# RESET		= \033[0m
-
-# Rules
 all: $(NAME)
 
 $(NAME): $(OBJS)
