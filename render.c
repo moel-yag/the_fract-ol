@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 23:03:56 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 18:12:18 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/16 13:43:38 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	my_pixel_put(int x, int y, t_img *img, int color)
 
 static void	mandel_or_julia(t_complex *z, t_complex *c, t_fractal *fractal)
 {
-	if (!ft_strncmp(fractal->name, "Julia", 5))
+	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
 		c->x = fractal->julia_x;
 		c->y = fractal->julia_y;

@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 02:41:04 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/16 12:17:16 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/16 15:26:01 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,15 @@ int	mouse_handler(int button, t_fractal *fractal)
 	return (0);
 }
 
-// int julia_track(int x, int y, t_fractal *fractal)
-// {
-//     if (!ft_strncmp(fractal->name, "julia", 5))
-//     {
-//         fractal->julia_x = (map(x, -2, 2, WIDTH) * fractal->zoom)
-//             + fractal->shift_x;
-//         fractal->julia_y = (map(y, -2, 2, HEIGHT) * fractal->zoom)
-//             + fractal->shift_y;
-//     }
-//     fractal_render(fractal);
-//     return (0);
-// }
+int julia_track(int x, int y, t_fractal *fractal)
+{
+    if (!ft_strncmp(fractal->name, "julia", 5))
+    {
+        fractal->julia_x = (map(x, -2, 2, WIDTH) * fractal->zoom)
+            + fractal->shift_x;
+        fractal->julia_y = (map(y, -2, 2, HEIGHT) * fractal->zoom)
+            + fractal->shift_y;
+    }
+    fractal_render(fractal);
+    return (0);
+}

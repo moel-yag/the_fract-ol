@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 18:05:04 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 18:10:39 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/16 15:24:49 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static void	events_init(t_fractal *fractal)
 		mouse_handler, fractal);
 	mlx_hook(fractal->mlx_window, DestroyNotify, StructureNotifyMask,
 		close_handler, fractal);
+	mlx_hook(fractal->mlx_window, MotionNotify, PointerMotionMask,
+		julia_track, fractal);
 }
 
 void	fractal_init(t_fractal *fractal)
