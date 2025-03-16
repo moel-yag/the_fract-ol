@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 02:41:04 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 18:22:42 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/16 12:17:16 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	key_handler(int keysym, t_fractal *fractal)
 	return (0);
 }
 
-int	mouse_handler(int button, int x, int y, t_fractal *fractal)
+int	mouse_handler(int button, t_fractal *fractal)
 {
 	if (button == Button5)
 		fractal->zoom *= 0.95;

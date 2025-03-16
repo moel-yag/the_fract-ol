@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:50:54 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/16 11:48:25 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/16 12:17:28 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 int			close_handler(t_fractal *fractal);
 int			key_handler(int keysym, t_fractal *fractal);
-int			mouse_handler(int button, int x, int y, t_fractal *fractal);
+int			mouse_handler(int button, t_fractal *fractal);
 double		atodbl(char *s);
 // int			julia_track(int x, int y, t_fractal *fractal);
 

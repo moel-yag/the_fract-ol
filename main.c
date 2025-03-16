@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:49:33 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 18:08:56 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/16 12:14:16 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	main(int ac, char **av)
 {
 	t_fractal	fractal;
 
-	if (ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10)
-		|| ac == 4 && !ft_strncmp(av[1], "julia", 5))
+	if ((ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10))
+		|| (ac == 4 && !ft_strncmp(av[1], "julia", 5)))
 	{
 		fractal.name = av[1];
 		if (!ft_strncmp(fractal.name, "julia", 5))
