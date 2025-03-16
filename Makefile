@@ -20,10 +20,10 @@ OBJS		= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 # Includes
 INCLUDES	= -I $(INC_DIR) -I $(LIBFT_DIR) -I $(MLX_DIR)
 
-# Colors
-GREEN		= \033[0;32m
-RED			= \033[0;31m
-RESET		= \033[0m
+# # Colors
+# GREEN		= \033[0;32m
+# RED			= \033[0;31m
+# RESET		= \033[0m
 
 # Rules
 all: $(NAME)
@@ -32,7 +32,7 @@ $(NAME): $(OBJS)
 	@make -C $(LIBFT_DIR)
 	@make -C $(MLX_DIR)
 	@$(CC) $(CFLAGS) $(OBJS) -L $(LIBFT_DIR) -lft $(MLX_FLAGS) -o $(NAME)
-	@echo "$(GREEN)Project $(NAME) compiled successfully!$(RESET)"
+	@echo "Project $(NAME) compiled successfully!"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
@@ -42,12 +42,12 @@ clean:
 	@make clean -C $(LIBFT_DIR)
 	@make clean -C $(MLX_DIR)
 	@rm -rf $(OBJ_DIR)
-	@echo "$(RED)Object files removed.$(RESET)"
+	@echo "Object files removed."
 
 fclean: clean
 	@make fclean -C $(LIBFT_DIR)
 	@rm -f $(NAME)
-	@echo "$(RED)Executable $(NAME) removed.$(RESET)"
+	@echo "Executable $(NAME) removed."
 
 re: fclean all
 
