@@ -6,34 +6,33 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:20:07 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 19:49:43 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/16 13:23:35 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "minilibx-linux/mlx.h"
 
-int	ft_strncmp(char *s1, char *s2, int n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
+	size_t	i;
 
-	if (s1 == NULL || s2 == NULL || n <= 0)
-		return (0);
 	i = 0;
-	while (i < n && s1[i] == s2[i])
+	while ((s1[i] || s2[i]) && i < n)
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
-	return (s1[i] - s2[i]);
+	}
+	return (0);
 }
 
-void	putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (s == NULL || fd < 0)
+	if (!s)
 		return ;
-	if (*s != '\0')
-	{
-		write(fd, s, 1);
-		putstr_fd(s + 1, fd);
-	}
+	while (*s)
+		write(fd, s++, 1);
 }
 
 double	atodbl(char *s)

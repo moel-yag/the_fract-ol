@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:50:54 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/16 12:17:28 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/16 13:25:37 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ typedef struct s_fractal
 	double	julia_y;
 }				t_fractal;
 
-int			ft_strncmp(char *s1, char *s2, int n);
-void		putstr_fd(char *s, int fd);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
+void		ft_putstr_fd(char *s, int fd);
 void		fractal_init(t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
 double		map(double unscaled_nb, double new_min, double new_max,
