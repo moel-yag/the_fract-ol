@@ -2,13 +2,13 @@ NAME		= fractol
 
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
-MLX_FLAGS	= -Lminilibx-linux -lmlx_Linux -lX11 -lXext -lm
-
-SRC_DIR		= srcs
-OBJ_DIR		= objs
+MLX_FLAGS	= -I../minilibx-linux -Lminilibx-linux -lmlx_Linux -lX11 -lXext
 
 SRCS		= main.c init.c render.c events.c string_utils.c math_utils.c
 OBJS		= $(SRCS:.c=.o)
+
+SRC_DIR		= $(SRCS)
+OBJ_DIR		= $(OBJS)
 
 all: $(NAME)
 
