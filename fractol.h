@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:50:54 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/15 18:09:55 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/16 11:48:25 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "minilibx-linux/mlx.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
-// # include <X11/keysymdef.h>
+# include <X11/keysymdef.h>
 # include <stdlib.h>
 # include <stdio.h>
 

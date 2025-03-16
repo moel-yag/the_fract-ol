@@ -2,24 +2,19 @@ NAME		= fractol
 
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
-MLX_FLAGS	= -L minilibx-linux -lmlx -lXext -lX11 -lm
+MLX_FLAGS	= -Lminilibx-linux -lmlx_Linux -lX11 -lXext -lm
 
 SRC_DIR		= srcs
 OBJ_DIR		= objs
-INC_DIR		= includes
-MLX_DIR		= minilibx-linux
 
 SRCS		= main.c init.c render.c events.c string_utils.c math_utils.c
-OBJS		= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
-
-INCLUDES	= -I $(INC_DIR) -I $(MLX_DIR)
+OBJS		= $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	@make -C $(MLX_DIR)
-	@$(CC) $(CFLAGS) $(OBJS) -lft $(MLX_FLAGS) -o $(NAME)
-	@echo "Project $(NAME) compiled successfully!"
+	@$(CC) $(CFLAGS) $(OBJS) $(MLX_FLAGS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
