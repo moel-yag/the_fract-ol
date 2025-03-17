@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:20:07 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/17 12:53:08 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/17 13:56:57 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,17 @@ static int	check_digits_and_dots(char **s, int *has_dot)
 			if (*has_dot || !has_digit)
 				return (0);
 			*has_dot = 1;
+			if (!(*s)++ || (**s)++ == ' ')
+			{
+				ft_putstr_fd(ERROR_MESSAGE, 2);
+				ft_putstr_fd(ERROR_MESSAGE2, 2);
+				exit(1);
+			}
 		}
 		else if (**s >= '0' && **s <= '9')
 			has_digit = 1;
 		else
 			break ;
-		if (**s < '0' && **s > '9')
-			return (0);
 		(*s)++;
 	}
 	return (has_digit);
@@ -61,17 +65,17 @@ int	is_valid_number(char *s)
 	return (*ptr == '\0' && has_digit);
 }
 
-static int	helper_func2(char *s, double *pow, double *fractional_part)
+static int	helper_func2(char **s, double *pow, double *fractional_part)
 {
-	if (*s == '.')
+	if (**s == '.')
 	{
-		s++;
-		while (*s)
+		(*s)++;
+		while (**s)
 		{
-			if (!(*s >= '0' && *s <= '9'))
+			if (!(**s >= '0' && **s <= '9'))
 				return (0);
 			*pow /= 10;
-			*fractional_part += (*s++ - 48) * (*pow);
+			*fractional_part += (**s++ - 48) * (*pow);
 		}
 	}
 	return (0);
@@ -100,7 +104,7 @@ double	atodbl(char *s)
 		integer_part = integer_part * 10 + (*s++ - 48);
 	if (*s && *s != '.' && (*s < '0' || *s > '9'))
 		return (0);
-	helper_func2(s, &pow, &fractional_part);
+	helper_func2(&s, &pow, &fractional_part);
 	while ((*s >= 9 && *s <= 13) || *s == 32)
 		s++;
 	return ((integer_part + fractional_part) * sign);
