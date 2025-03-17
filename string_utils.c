@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:20:07 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/17 11:38:32 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/17 12:53:08 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static int	check_digits_and_dots(char **s, int *has_dot)
 			has_digit = 1;
 		else
 			break ;
+		if (**s < '0' && **s > '9')
+			return (0);
 		(*s)++;
 	}
 	return (has_digit);
@@ -56,8 +58,7 @@ int	is_valid_number(char *s)
 	skip_whitespace(&ptr);
 	has_digit = check_digits_and_dots(&ptr, &has_dot);
 	skip_whitespace(&ptr);
-	*ptr = '\0';
-	return (has_digit);
+	return (*ptr == '\0' && has_digit);
 }
 
 static int	helper_func2(char *s, double *pow, double *fractional_part)
