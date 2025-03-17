@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:50:54 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/16 15:24:19 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/17 12:26:37 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,21 @@ typedef struct s_img
 
 typedef struct s_fractal
 {
-	char	*name;
-	void	*mlx_connection;
-	void	*mlx_window;
-	t_img	img;
-	double	escape_value;
-	int		iterations_definition;
-	double	shift_x;
-	double	shift_y;
-	double	zoom;
-	double	julia_x;
-	double	julia_y;
-	double	mouse_x;
-	double	mouse_y;
+	char		*name;
+	void		*mlx_connection;
+	void		*mlx_window;
+	t_img		img;
+	double		escape_value;
+	double		shift_x;
+	double		shift_y;
+	t_complex	julia_c;
+	t_complex	center;
+	double		zoom;
+	double		iterations_definition;
+	double		julia_x;
+	double		julia_y;
+	double		mouse_x;
+	double		mouse_y;
 }				t_fractal;
 
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -78,9 +80,8 @@ t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 int			close_handler(t_fractal *fractal);
 int			key_handler(int keysym, t_fractal *fractal);
-int			mouse_handler(int button, t_fractal *fractal);
+int			mouse_handler(int button, int x, int y, t_fractal *fractal);
 double		atodbl(char *s);
-// int	mouse_position(int x, int y, t_fractal *fractal);
-int			julia_track(int x, int y, t_fractal *fractal);
+int			is_valid_number(char *s);
 
 #endif

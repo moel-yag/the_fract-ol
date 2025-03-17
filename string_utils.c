@@ -6,50 +6,62 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:20:07 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/16 15:19:09 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/17 11:38:32 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "minilibx-linux/mlx.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+static void	skip_whitespace(char **s)
 {
-	size_t	i;
+	while ((**s >= 9 && **s <= 13) || **s == ' ')
+		(*s)++;
+}
 
-	i = 0;
-	while ((s1[i] || s2[i]) && i < n)
+static int	check_digits_and_dots(char **s, int *has_dot)
+{
+	int	has_digit;
+
+	has_digit = 0;
+	while (**s)
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
+		if (**s == '.')
+		{
+			if (*has_dot || !has_digit)
+				return (0);
+			*has_dot = 1;
+		}
+		else if (**s >= '0' && **s <= '9')
+			has_digit = 1;
+		else
+			break ;
+		(*s)++;
 	}
-	return (0);
+	return (has_digit);
 }
 
-void	ft_putstr_fd(char *s, int fd)
+int	is_valid_number(char *s)
 {
-	if (!s)
-		return ;
-	while (*s)
-		write(fd, s++, 1);
+	int		has_digit;
+	int		has_dot;
+	char	*ptr;
+
+	ptr = s;
+	has_digit = 0;
+	has_dot = 0;
+	skip_whitespace(&ptr);
+	if (*ptr == '+' || *ptr == '-')
+		ptr++;
+	skip_whitespace(&ptr);
+	has_digit = check_digits_and_dots(&ptr, &has_dot);
+	skip_whitespace(&ptr);
+	*ptr = '\0';
+	return (has_digit);
 }
 
-double	atodbl(char *s)
+static int	helper_func2(char *s, double *pow, double *fractional_part)
 {
-	long	integer_part = 0;
-	double	fractional_part = 0;
-	double	pow = 1;
-	int		sign = 1;
-
-	while ((*s >= 9 && *s <= 13) || *s == 32)
-		++s;
-	if ((*s == '+' || *s == '-') && (*s++ == '-'))
-		sign = -1;
-	while (*s && *s != '.' && (*s >= '0' && *s <= '9'))
-		integer_part = integer_part * 10 + (*s++ - 48);
-	if (*s && *s != '.' && (*s < '0' || *s > '9'))
-		return (0);
 	if (*s == '.')
 	{
 		s++;
@@ -57,9 +69,38 @@ double	atodbl(char *s)
 		{
 			if (!(*s >= '0' && *s <= '9'))
 				return (0);
-			pow /= 10;
-			fractional_part += (*s++ - 48) * pow;
+			*pow /= 10;
+			*fractional_part += (*s++ - 48) * (*pow);
 		}
 	}
+	return (0);
+}
+
+double	atodbl(char *s)
+{
+	long	integer_part;
+	double	fractional_part;
+	double	pow;
+	int		sign;
+
+	integer_part = 0;
+	fractional_part = 0;
+	pow = 1;
+	sign = 1;
+	while ((*s >= 9 && *s <= 13) || *s == 32)
+		++s;
+	if (*s == '+' || *s == '-')
+	{
+		if (*s == '-')
+			sign = -1;
+		s++;
+	}
+	while (*s && *s != '.' && (*s >= '0' && *s <= '9'))
+		integer_part = integer_part * 10 + (*s++ - 48);
+	if (*s && *s != '.' && (*s < '0' || *s > '9'))
+		return (0);
+	helper_func2(s, &pow, &fractional_part);
+	while ((*s >= 9 && *s <= 13) || *s == 32)
+		s++;
 	return ((integer_part + fractional_part) * sign);
 }

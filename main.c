@@ -6,16 +6,38 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:49:33 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/16 15:21:37 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/17 12:27:16 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include "minilibx-linux/mlx.h"
 
-static int	valid_julia_params(char **av, double x, double y)
+static int	valid_julia_params(char **av)
 {
-	return (av[2][0] && av[3][0] && (x != 0 || y != 0));
+	return (is_valid_number(av[2]) && is_valid_number(av[3]));
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (!s)
+		return ;
+	while (*s)
+		write(fd, s++, 1);
+}
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while ((s1[i] || s2[i]) && i < n)
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -30,7 +52,7 @@ int	main(int ac, char **av)
 		mlx_loop(f.mlx_connection);
 	}
 	else if (ac == 4 && !ft_strncmp(av[1], "julia", 5)
-		&& valid_julia_params(av, atodbl(av[2]), atodbl(av[3])))
+		&& av[2][0] && av[3][0] && valid_julia_params(av))
 	{
 		f.name = av[1];
 		f.julia_x = atodbl(av[2]);
@@ -46,29 +68,3 @@ int	main(int ac, char **av)
 		exit(1);
 	}
 }
-
-// int	main(int ac, char **av)
-// {
-// 	t_fractal	fractal;
-
-// 	if ((ac == 2 && !ft_strncmp(av[1], "mandelbrot", 11))
-// 		|| ((ac == 4 && !ft_strncmp(av[1], "julia", 5))
-// 		&& av[2][0] != '\0' && av[3][0] != '\0'))
-// 	{
-// 		fractal.name = av[1];
-// 		if (!ft_strncmp(fractal.name, "julia", 5))
-// 		{
-// 			fractal.julia_x = atodbl(av[2]);
-// 			fractal.julia_y = atodbl(av[3]);
-// 		}
-// 		fractal_init(&fractal);
-// 		fractal_render(&fractal);
-// 		mlx_loop(fractal.mlx_connection);
-// 	}
-// 	else
-// 	{
-// 		ft_putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
-// 		ft_putstr_fd(ERROR_MESSAGE2, STDERR_FILENO);
-// 		exit(EXIT_FAILURE);
-// 	}
-// }

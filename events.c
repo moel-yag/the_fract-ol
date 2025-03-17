@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 02:41:04 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/16 15:26:01 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/17 12:23:59 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,19 @@ int	key_handler(int keysym, t_fractal *fractal)
 	return (0);
 }
 
-int	mouse_handler(int button, t_fractal *fractal)
+int	mouse_handler(int button, int x, int y, t_fractal *f)
 {
-	if (button == Button5)
-		fractal->zoom *= 0.95;
-	else if (button == Button4)
-		fractal->zoom *= 1.05;
-	fractal_render(fractal);
-	return (0);
-}
+	double	old_zoom;
+	double	ms_r;
+	double	ms_i;
 
-int julia_track(int x, int y, t_fractal *fractal)
-{
-    if (!ft_strncmp(fractal->name, "julia", 5))
-    {
-        fractal->julia_x = (map(x, -2, 2, WIDTH) * fractal->zoom)
-            + fractal->shift_x;
-        fractal->julia_y = (map(y, -2, 2, HEIGHT) * fractal->zoom)
-            + fractal->shift_y;
-    }
-    fractal_render(fractal);
-    return (0);
+	old_zoom = f->zoom;
+	if (button == Button5)
+		f->zoom *= 0.9;
+	else if (button == Button4)
+		f->zoom /= 0.9;
+	ms_r = (x - WIDTH / 2.0) * (old_zoom / WIDTH) + f->center.x;
+	ms_i = (y - WIDTH / 2.0) * (old_zoom / WIDTH) + f->center.y;
+	fractal_render(f);
+	return (0);
 }
