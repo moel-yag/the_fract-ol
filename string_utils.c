@@ -6,7 +6,7 @@
 /*   By: moel-yag <moel-yag@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:20:07 by moel-yag          #+#    #+#             */
-/*   Updated: 2025/03/17 13:56:57 by moel-yag         ###   ########.fr       */
+/*   Updated: 2025/03/17 14:06:10 by moel-yag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@ static int	check_digits_and_dots(char **s, int *has_dot)
 			if (*has_dot || !has_digit)
 				return (0);
 			*has_dot = 1;
-			if (!(*s)++ || (**s)++ == ' ')
-			{
-				ft_putstr_fd(ERROR_MESSAGE, 2);
-				ft_putstr_fd(ERROR_MESSAGE2, 2);
-				exit(1);
-			}
 		}
 		else if (**s >= '0' && **s <= '9')
 			has_digit = 1;
