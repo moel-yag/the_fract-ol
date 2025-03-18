@@ -39,6 +39,60 @@ Fract'ol is a 42 School project that generates and renders beautiful fractals us
    git clone https://github.com/your-username/fractol.git
    cd fractol
    ```
+
+    Compile the program:
+    bash
+    Copy
+
+    make
+
+Usage
+
+Run the program with one of the following commands:
+
+  Mandelbrot Set:
+  ```bash
+    ./fractol mandelbrot
+  ```
+
+  Julia Set (with custom parameters):
+  ```bash
+    ./fractol julia -0.8 0.4
+  ```
+
+Controls
+
+  Zoom:
+
+      Scroll up to zoom in.
+
+      Scroll down to zoom out.
+
+  Pan:
+
+      Use the arrow keys to move the view.
+
+  Exit:
+
+      Press ESC or click the window's close button.
+
 ## Examples
   Mandelbrot set
   ![Mandelbrot Set](https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Mandel_zoom_00_mandelbrot_set.jpg/1200px-Mandel_zoom_00_mandelbrot_set.jpg)
+  Julia set
+  ![Julia Set Example](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Julia_set%2C_plotted_with_Matplotlib.svg/1200px-Julia_set%2C_plotted_with_Matplotlib.svg.png)
+## Technical Details
+
+  Language: C
+
+  Library: MiniLibX (42's custom graphics library)
+
+  Fractal Formulas:
+
+  Mandelbrot: zn+1=zn2+czn+1​=zn2​+c
+
+  Julia: zn+1=zn2+czn+1​=zn2​+c (with fixed cc)
+
+  Color Mapping:
+
+  Points are colored based on the number of iterations before escaping.
