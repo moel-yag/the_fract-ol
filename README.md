@@ -1,7 +1,5 @@
 # Fract'ol - 42 School Project
 
-![Mandelbrot Set](https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Mandel_zoom_00_mandelbrot_set.jpg/1200px-Mandel_zoom_00_mandelbrot_set.jpg)
-
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Features](#features)
@@ -41,3 +39,6 @@ Fract'ol is a 42 School project that generates and renders beautiful fractals us
    git clone https://github.com/your-username/fractol.git
    cd fractol
    ```
+## Examples
+  Mandelbrot set
+  ![Mandelbrot Set](https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Mandel_zoom_00_mandelbrot_set.jpg/1200px-Mandel_zoom_00_mandelbrot_set.jpg)
